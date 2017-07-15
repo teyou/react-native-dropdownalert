@@ -6,7 +6,7 @@ const StatusBarDefaultBarStyle = StatusBar._defaultProps.barStyle.value
 const StatusBarDefaultBackgroundColor = StatusBar._defaultProps.backgroundColor.value
 const DEFAULT_IMAGE_DIMENSIONS = 36
 const WINDOW = Dimensions.get('window');
-var closeTimeoutId = null
+//var closeTimeoutId = null
 var panResponder
 
 export default class DropdownAlert extends Component {
@@ -114,6 +114,8 @@ export default class DropdownAlert extends Component {
       endDelta: props.endDelta,
       topValue: 0,
     }
+
+    this.closeTimeoutId = null;
     // Render
     this.renderButton = this.renderButton.bind(this)
     this.renderDropDown = this.renderDropDown.bind(this)
@@ -199,7 +201,7 @@ export default class DropdownAlert extends Component {
         }
         self.animate(1)
         if (self.props.closeInterval > 1) {
-         closeTimeoutId = setTimeout(function() {
+         this.closeTimeoutId = setTimeout(function() {
            self.onClose('automatic')
          }.bind(self), self.props.closeInterval)
        }
@@ -208,8 +210,8 @@ export default class DropdownAlert extends Component {
   }
   dismiss(onDismiss, action) {
     if (this.state.isOpen) {
-      if (closeTimeoutId != null) {
-        clearTimeout(closeTimeoutId)
+      if (this.closeTimeoutId != null) {
+        clearTimeout(this.closeTimeoutId)
       }
       this.animate(0)
       setTimeout(function() {
