@@ -6,7 +6,6 @@ const StatusBarDefaultBarStyle = StatusBar._defaultProps.barStyle.value
 const StatusBarDefaultBackgroundColor = StatusBar._defaultProps.backgroundColor.value
 const DEFAULT_IMAGE_DIMENSIONS = 36
 const WINDOW = Dimensions.get('window');
-//var closeTimeoutId = null
 var panResponder
 
 export default class DropdownAlert extends Component {
