@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {StyleSheet, View, Text, TouchableHighlight, Animated, StatusBar, Platform, Dimensions, Image, PanResponder} from "react-native"
+import {StyleSheet, View, Text, TouchableHighlight, Animated, StatusBar, Platform, Dimensions, Image, PanResponder, ViewPropTypes} from "react-native"
 import PropTypes from 'prop-types';
 
 const StatusBarDefaultBarStyle = StatusBar._defaultProps.barStyle.value
@@ -25,7 +25,7 @@ export default class DropdownAlert extends Component {
     closeInterval: PropTypes.number,
     startDelta: PropTypes.number,
     endDelta: PropTypes.number,
-    containerStyle: View.propTypes.style,
+    containerStyle: ViewPropTypes.style,
     titleStyle: Text.propTypes.style,
     messageStyle: Text.propTypes.style,
     imageStyle: Image.propTypes.style,
